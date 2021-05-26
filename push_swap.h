@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/24 14:08:28 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/26 14:30:38 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct s_list
 {
-	int				n;
+	int				cont;
 	struct s_list	*next;
 }	t_list;
 
@@ -29,10 +29,12 @@ typedef struct s_stacks
 	t_list	*b;
 }	t_stacks;
 
-void	swap(int *tab);
+void	swap(t_list *lst1, t_list *lst2);
+void	pb(t_stacks *stacks);
 
 //utils
 int		ft_atoi(const char *nptr);
 void	ft_lstclear(t_list **lst);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif
