@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/26 14:46:46 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:34:53 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,18 @@ typedef struct s_stacks
 	t_list	*b;
 }	t_stacks;
 
+//operations
 void	sa(t_stacks *stacks);
 void	sb(t_stacks *stacks);
 void	ss(t_stacks *stacks);
 void	pa(t_stacks *stacks);
 void	pb(t_stacks *stacks);
+void	ra(t_stacks *stacks);
+void	rb(t_stacks *stacks);
+void	rr(t_stacks *stacks);
+void	rra(t_stacks *stacks);
+void	rrb(t_stacks *stacks);
+void	rrr(t_stacks *stacks);
 
 //utils
 int		ft_atoi(const char *nptr);

@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 10:57:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/26 14:46:35 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:36:49 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,6 @@ int	main(int argc, char **argv)
 		}
 	}
 	tmp_a->next = NULL;
-	pb(stacks);
-	pb(stacks);
-	ss(stacks);
 	printlst(stacks->a); //to remove
 	printlst(stacks->b); //to remove
 	if (stacks->a)

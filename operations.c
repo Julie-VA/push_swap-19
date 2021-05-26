@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:27:17 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/26 14:39:45 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:36:28 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ss(t_stacks *stacks)
 
 void	pa(t_stacks *stacks)
 {
-	t_list		*tmp;
+	t_list	*tmp;
 
 	tmp = stacks->b;
 	stacks->b = stacks->b->next;
@@ -48,10 +48,78 @@ void	pa(t_stacks *stacks)
 
 void	pb(t_stacks *stacks)
 {
-	t_list		*tmp;
+	t_list	*tmp;
 
 	tmp = stacks->a;
 	stacks->a = stacks->a->next;
 	tmp->next = stacks->b;
 	stacks->b = tmp;
+}
+
+void	ra(t_stacks *stacks)
+{
+	t_list	*tmp;
+	t_list	*i;
+
+	tmp = stacks->a;
+	i = tmp;
+	stacks->a = stacks->a->next;
+	while (i->next)
+		i = i->next;
+	i->next = tmp;
+	i->next->next = NULL;
+}
+
+void	rb(t_stacks *stacks)
+{
+	t_list	*tmp;
+	t_list	*i;
+
+	tmp = stacks->b;
+	i = tmp;
+	stacks->b = stacks->b->next;
+	while (i->next)
+		i = i->next;
+	i->next = tmp;
+	i->next->next = NULL;
+}
+
+void	rr(t_stacks *stacks)
+{
+	ra(stacks);
+	rb(stacks);
+}
+
+void	rra(t_stacks *stacks)
+{
+	t_list	*tmp;
+	t_list	*i;
+
+	i = stacks->a;
+	while (i->next->next)
+		i = i->next;
+	tmp = i->next;
+	i->next = NULL;
+	tmp->next = stacks->a;
+	stacks->a = tmp;
+}
+
+void	rrb(t_stacks *stacks)
+{
+	t_list	*tmp;
+	t_list	*i;
+
+	i = stacks->b;
+	while (i->next->next)
+		i = i->next;
+	tmp = i->next;
+	i->next = NULL;
+	tmp->next = stacks->b;
+	stacks->b = tmp;
+}
+
+void	rrr(t_stacks *stacks)
+{
+	rra(stacks);
+	rrb(stacks);
 }
