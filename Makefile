@@ -6,35 +6,44 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 11:31:42 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/05/28 15:59:48 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/05/28 17:12:34 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= main.c						\
-			push_swap_utils.c			\
+SRCS_PSWAP	= push_swap.c	\
+
+SRCS_CHECKR	= checker.c	\
+
+SRCS_UTILS	= utils.c					\
 			setstacks.c					\
 			operations/push.c			\
 			operations/reverserotate.c	\
 			operations/rotate.c			\
 			operations/swap.c			\
 
-NAME	= push_swap
+NAME		= $(PSWAP) $(CHECKER)
+PSWAP		= push_swap
+CHECKER		= checker
 
-CC		= gcc -I includes
+CC			= gcc -I includes
+RM			= rm -f
+CFLAGS		= -Wall -Wextra -Werror
 
-RM		= rm -f
+OBJS_PSWAP	= $(SRCS_PSWAP:.c=.o)
+OBJS_CHECKR	= $(SRCS_CHECKR:.c=.o)
+OBJS_UTILS	= $(SRCS_UTILS:.c=.o)
+OBJS_ALL	= $(OBJS_PSWAP) $(OBJS_CHECKR) $(OBJS_UTILS)
 
-CFLAGS	= -Wall -Wextra -Werror
+$(PSWAP):	$(OBJS_PSWAP) $(OBJS_UTILS)
+			@$(CC) $(CFLAGS) -o $(PSWAP) $(SRCS_PSWAP) $(SRCS_UTILS)
 
-OBJS	= $(SRCS:.c=.o)
-
-$(NAME):	$(OBJS)
-			@$(CC) $(CFLAGS) -o $(NAME) $(SRCS)
+$(CHECKER):	$(OBJS_CHECKR) $(OBJS_UTILS)
+			@$(CC) $(CFLAGS) -o $(CHECKER) $(SRCS_CHECKR) $(SRCS_UTILS)
 
 all:		$(NAME)
 
 clean:
-			$(RM) $(OBJS)
+			$(RM) $(OBJS_ALL)
 
 fclean:		clean
 			$(RM) $(NAME)
