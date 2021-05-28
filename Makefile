@@ -6,12 +6,13 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 11:31:42 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/05/28 10:09:32 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/05/28 15:59:48 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= main.c						\
 			push_swap_utils.c			\
+			setstacks.c					\
 			operations/push.c			\
 			operations/reverserotate.c	\
 			operations/rotate.c			\
