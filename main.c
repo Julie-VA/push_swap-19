@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 10:57:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/26 15:46:30 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/28 14:59:12 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	printlst(t_list *lst)
 	printf("\n");
 }
 
-int	main(int argc, char **argv)
+t_stacks	*setstacks(int	argc, char	**argv)
 {
 	t_stacks	*stacks;
 	t_list		*tmp_a;
@@ -44,6 +44,14 @@ int	main(int argc, char **argv)
 		}
 	}
 	tmp_a->next = NULL;
+	return (stacks);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stacks	*stacks;
+
+	stacks = setstacks(argc, argv);
 	printlst(stacks->a); //to remove
 	printlst(stacks->b); //to remove
 	if (stacks->a)
@@ -51,6 +59,6 @@ int	main(int argc, char **argv)
 	if (stacks->b)
 		ft_lstclear(&stacks->b);
 	free(stacks);
-	system("leaks a.out");
+	//system("leaks push_swap");
 	return (0);
 }
