@@ -6,7 +6,7 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 11:31:42 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/05/28 17:12:34 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/05/31 13:44:57 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRCS_UTILS	= utils.c					\
 			operations/reverserotate.c	\
 			operations/rotate.c			\
 			operations/swap.c			\
+			modgnl.c					\
+			modgnl_utils.c				\
 
 NAME		= $(PSWAP) $(CHECKER)
 PSWAP		= push_swap

@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/28 15:59:23 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/31 13:45:24 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,30 @@ typedef struct s_stacks
 }	t_stacks;
 
 //operations
-void	sa(t_stacks *stacks);
-void	sb(t_stacks *stacks);
-void	ss(t_stacks *stacks);
-void	pa(t_stacks *stacks);
-void	pb(t_stacks *stacks);
-void	ra(t_stacks *stacks);
-void	rb(t_stacks *stacks);
-void	rr(t_stacks *stacks);
-void	rra(t_stacks *stacks);
-void	rrb(t_stacks *stacks);
-void	rrr(t_stacks *stacks);
+void		sa(t_stacks *stacks);
+void		sb(t_stacks *stacks);
+void		ss(t_stacks *stacks);
+void		pa(t_stacks *stacks);
+void		pb(t_stacks *stacks);
+void		ra(t_stacks *stacks);
+void		rb(t_stacks *stacks);
+void		rr(t_stacks *stacks);
+void		rra(t_stacks *stacks);
+void		rrb(t_stacks *stacks);
+void		rrr(t_stacks *stacks);
 
 //utils
-int		ft_atoi(const char *nptr);
-void	ft_lstclear(t_list **lst);
-void	ft_lstadd_front(t_list **lst, t_list *new);
+int			ft_atoi(const char *nptr);
+void		ft_lstclear(t_list **lst);
+void		ft_lstadd_front(t_list **lst, t_list *new);
 
 //setstacks
 t_stacks	*setstacks(char	**argv);
+
+//gnl
+int			get_next_line(int fd, char **line);
+int			ft_strchr(const char *s, int c);
+int			ft_modstrlen(const char *s, int mod);
+char		*ft_strjoin(char const *s1, char const *s2);
 
 #endif
