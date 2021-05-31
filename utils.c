@@ -6,20 +6,11 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:02:55 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 17:00:53 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/31 17:41:38 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	checkspace(char c)
-{
-	if (c == ' ' || c == '\n' || c == '\f'
-		|| c == '\r' || c == '\t' || c == '\v')
-		return (1);
-	else
-		return (0);
-}
 
 static void	checksign(const char *nptr, int *i, int *sign)
 {
@@ -30,7 +21,7 @@ static void	checksign(const char *nptr, int *i, int *sign)
 	}
 }
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr, t_stacks *stacks)
 {
 	int				sign;
 	int				i;
@@ -39,20 +30,17 @@ int	ft_atoi(const char *nptr)
 	sign = 0;
 	i = 0;
 	rtrnval = 0;
-	while (checkspace(nptr[i]))
-		i++;
-	if (nptr[i] == '+')
-		i++;
-	else if (nptr[i] == '-')
+	if (nptr[i] == '-')
 		checksign(nptr, &i, &sign);
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 		rtrnval = (rtrnval * 10) + (nptr[i++] - '0');
 	if (sign == 1)
+	{
 		rtrnval *= -1;
-	if (sign == 0 && rtrnval < 0)
-		return (-1);
-	else if (sign == 1 && rtrnval > 0)
-		return (0);
+		i--;
+	}
+	if (i > 10 || rtrnval > 2147483647 || rtrnval < -2147483648)
+		print_error(stacks);
 	return ((int)rtrnval);
 }
 

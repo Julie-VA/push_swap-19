@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:58:55 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 17:01:22 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/31 17:22:19 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	freestacks(t_stacks *stacks)
 
 static int	setstacks_split(char **argv, t_list **tmp, int i, int j)
 {
-	(*tmp)->cont = ft_atoi(argv[i] + j);
 	j++;
 	while (argv[i][j] >= '0' && argv[i][j] <= '9')
 		j++;
@@ -64,6 +63,7 @@ t_stacks	*setstacks(char	**argv)
 		j = 0;
 		while (argv[i][j])
 		{
+			tmp->cont = ft_atoi(argv[i] + j, stacks);
 			j = setstacks_split(argv, &tmp, i, j);
 			if (j == -1)
 			{
