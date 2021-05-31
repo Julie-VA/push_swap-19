@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 16:33:49 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 18:18:30 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/31 18:31:48 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ int	main(int argc, char	**argv)
 	stacks = setstacks(argv);
 	if (!stacks)
 	{
-		system("leaks checker");
+		// system("leaks checker");
 		return (0);
 	}
 	if (dupcheck(stacks->a))
 	{
 		print_error(stacks);
-		system("leaks checker");
+		// system("leaks checker");
 		return (0);
 	}
 	while (get_next_line(0, &line))
@@ -75,13 +75,18 @@ int	main(int argc, char	**argv)
 		if (!selectope(line, stacks))
 		{
 			print_error(stacks);
+			// system("leaks checker");
 			return (0);
 		}
 		free(line);
 	}
+	if (sorted(stacks->a))
+		printf("Rataire");
+	else
+		printf("Reussille");
 	printlst(stacks->a); //to remove
 	printlst(stacks->b); //to remove
 	freestacks(stacks);
-	system("leaks checker");
+	// system("leaks checker");
 	return (0);
 }
