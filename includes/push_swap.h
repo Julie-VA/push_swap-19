@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 18:01:28 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/31 18:15:27 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int			ft_strchr(const char *s, int c);
 int			ft_modstrlen(const char *s, int mod);
 char		*ft_strjoin(char const *s1, char const *s2);
 
-//printerror
+//errors
 void		print_error(t_stacks *stacks);
+int			dupcheck(t_list	*a);
 
 #endif
