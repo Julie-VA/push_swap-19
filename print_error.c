@@ -1,41 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/24 10:57:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 17:06:32 by rvan-aud         ###   ########.fr       */
+/*   Created: 2021/05/31 14:45:26 by rvan-aud          #+#    #+#             */
+/*   Updated: 2021/05/31 14:50:42 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	printlst(t_list *lst)
+void	print_error(t_stacks *stacks)
 {
-	while (lst)
-	{
-		printf("%d\n", lst->cont);
-		lst = lst->next;
-	}
-	printf("\n");
-}
-
-int	main(int argc, char **argv)
-{
-	t_stacks	*stacks;
-	(void)argc;
-
-	stacks = setstacks(argv);
-	if (!stacks)
-	{
-		system("leaks push_swap");
-		return (0);
-	}
-	printlst(stacks->a); //to remove
-	printlst(stacks->b); //to remove
+	write(1, "Error\n", 6);
 	freestacks(stacks);
-	// system("leaks push_swap");
-	return (0);
 }

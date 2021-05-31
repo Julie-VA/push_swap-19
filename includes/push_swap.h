@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 14:06:25 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/31 14:51:04 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,15 @@ int			ft_strcmp(char *s1, char *s2);
 
 //setstacks
 t_stacks	*setstacks(char	**argv);
+void		freestacks(t_stacks *stacks);
 
 //gnl
 int			get_next_line(int fd, char **line);
 int			ft_strchr(const char *s, int c);
 int			ft_modstrlen(const char *s, int mod);
 char		*ft_strjoin(char const *s1, char const *s2);
+
+//printerror
+void		print_error(t_stacks *stacks);
 
 #endif

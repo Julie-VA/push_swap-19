@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 16:33:49 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 14:21:30 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/05/31 16:49:04 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,23 @@ int	main(int argc, char	**argv)
 	(void)argc;
 
 	stacks = setstacks(argv);
+	if (!stacks)
+	{
+		system("leaks checker");
+		return (0);
+	}
 	while (get_next_line(0, &line))
 	{
-		selectope(line, stacks);
+		if (!selectope(line, stacks))
+		{
+			print_error(stacks);
+			return (0);
+		}
 		free(line);
 	}
 	printlst(stacks->a); //to remove
 	printlst(stacks->b); //to remove
-	if (stacks->a)
-		ft_lstclear(&stacks->a);
-	if (stacks->b)
-		ft_lstclear(&stacks->b);
-	free(stacks);
+	freestacks(stacks);
 	system("leaks checker");
 	return (0);
 }
