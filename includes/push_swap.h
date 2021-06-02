@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/02 09:21:02 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/02 09:58:31 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ typedef struct s_stacks
 }	t_stacks;
 
 //operations
-int			sa(t_stacks *stacks);
-int			sb(t_stacks *stacks);
-int			ss(t_stacks *stacks);
-int			pa(t_stacks *stacks);
-int			pb(t_stacks *stacks);
-int			ra(t_stacks *stacks);
-int			rb(t_stacks *stacks);
-int			rr(t_stacks *stacks);
-int			rra(t_stacks *stacks);
-int			rrb(t_stacks *stacks);
-int			rrr(t_stacks *stacks);
+int			sa(t_stacks *stacks, int mod);
+int			sb(t_stacks *stacks, int mod);
+int			ss(t_stacks *stacks, int mod);
+int			pa(t_stacks *stacks, int mod);
+int			pb(t_stacks *stacks, int mod);
+int			ra(t_stacks *stacks, int mod);
+int			rb(t_stacks *stacks, int mod);
+int			rr(t_stacks *stacks, int mod);
+int			rra(t_stacks *stacks, int mod);
+int			rrb(t_stacks *stacks, int mod);
+int			rrr(t_stacks *stacks, int mod);
 
 //utils
 int			ft_atoi(const char *nptr, t_stacks *stacks, int *j, t_list **tmp);
@@ -62,5 +62,8 @@ char		*ft_strjoin(char const *s1, char const *s2);
 void		print_error(t_stacks *stacks);
 int			dupcheck(t_list	*a);
 int			sorted(t_list *a, int count);
+
+//algos
+void		alg3(t_stacks *stacks);
 
 #endif

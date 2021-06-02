@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 16:33:49 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/02 09:22:35 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/02 09:50:20 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,27 @@ static int	selectope(char *line, t_stacks *stacks)
 
 	check = 0;
 	if (!ft_strcmp(line, "sa"))
-		check = sa(stacks);
+		check = sa(stacks, 0);
 	else if (!ft_strcmp(line, "sb"))
-		check = sb(stacks);
+		check = sb(stacks, 0);
 	else if (!ft_strcmp(line, "ss"))
-		check = ss(stacks);
+		check = ss(stacks, 0);
 	else if (!ft_strcmp(line, "pa"))
-		check = pa(stacks);
+		check = pa(stacks, 0);
 	else if (!ft_strcmp(line, "pb"))
-		check = pb(stacks);
+		check = pb(stacks, 0);
 	else if (!ft_strcmp(line, "ra"))
-		check = ra(stacks);
+		check = ra(stacks, 0);
 	else if (!ft_strcmp(line, "rb"))
-		check = rb(stacks);
+		check = rb(stacks, 0);
 	else if (!ft_strcmp(line, "rr"))
-		check = rr(stacks);
+		check = rr(stacks, 0);
 	else if (!ft_strcmp(line, "rra"))
-		check = rra(stacks);
+		check = rra(stacks, 0);
 	else if (!ft_strcmp(line, "rrb"))
-		check = rrb(stacks);
+		check = rrb(stacks, 0);
 	else if (!ft_strcmp(line, "rrr"))
-		check = rrr(stacks);
+		check = rrr(stacks, 0);
 	return (check);
 }
 
