@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 16:18:02 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/02 09:50:07 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/02 11:03:22 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ int	rb(t_stacks *stacks, int mod)
 
 int	rr(t_stacks *stacks, int mod)
 {
-	ra(stacks, mod);
-	rb(stacks, mod);
+	ra(stacks, 0);
+	rb(stacks, 0);
+	if (mod)
+		write(1, "rr\n", 3);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/02 09:58:31 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/02 10:55:07 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ int			sorted(t_list *a, int count);
 
 //algos
 void		alg3(t_stacks *stacks);
+void		alg4(t_stacks *stacks);
 
 #endif
