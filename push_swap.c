@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 10:57:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 18:24:36 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/02 09:17:10 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ static void	printlst(t_list *lst)
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
+	int			count;
 	(void)argc;
 
-	stacks = setstacks(argv);
+	stacks = setstacks(argv, &count);
 	if (!stacks)
 	{
 		// system("leaks push_swap");

@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:58:55 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 18:01:46 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/02 09:25:08 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	setstacks_split(char **argv, t_list **tmp, int i, int j)
 	}
 }
 
-t_stacks	*setstacks(char	**argv)
+t_stacks	*setstacks(char	**argv, int *count)
 {
 	t_stacks	*stacks;
 	t_list		*tmp;
@@ -64,6 +64,7 @@ t_stacks	*setstacks(char	**argv)
 		while (argv[i][j])
 		{
 			tmp->cont = ft_atoi(argv[i] + j, stacks, &j, &tmp);
+			(*count)++;
 			if (j == -1)
 				return (NULL);
 			j = setstacks_split(argv, &tmp, i, j);

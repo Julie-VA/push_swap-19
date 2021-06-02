@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:45:26 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 18:33:18 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/02 09:25:02 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,19 @@ int	dupcheck(t_list	*a)
 	return (0);
 }
 
-int	sorted(t_list *a)
+int	sorted(t_list *a, int count)
 {
+	int	i;
+
+	i = 1;
 	while (a->next)
 	{
 		if (a->cont > a->next->cont)
 			return (1);
 		a = a->next;
+		i++;
 	}
+	if (i != count)
+		return (1);
 	return (0);
 }

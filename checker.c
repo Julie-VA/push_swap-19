@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 16:33:49 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/02 09:11:57 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/02 09:22:35 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,10 @@ int	main(int argc, char	**argv)
 {
 	t_stacks	*stacks;
 	char		*line;
+	int			count;
 	(void)argc;
 
-	stacks = setstacks(argv);
+	stacks = setstacks(argv, &count);
 	if (!stacks)
 	{
 		// system("leaks checker");
@@ -80,7 +81,7 @@ int	main(int argc, char	**argv)
 		}
 		free(line);
 	}
-	if (sorted(stacks->a))
+	if (sorted(stacks->a, count))
 		write(1, "KO\n", 3);
 	else
 		write(1, "OK\n", 3);

@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 18:29:22 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/02 09:21:02 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		ft_lstadd_front(t_list **lst, t_list *new);
 int			ft_strcmp(char *s1, char *s2);
 
 //setstacks
-t_stacks	*setstacks(char	**argv);
+t_stacks	*setstacks(char	**argv, int *count);
 void		freestacks(t_stacks *stacks);
 
 //gnl
@@ -61,6 +61,6 @@ char		*ft_strjoin(char const *s1, char const *s2);
 //errors
 void		print_error(t_stacks *stacks);
 int			dupcheck(t_list	*a);
-int			sorted(t_list *a);
+int			sorted(t_list *a, int count);
 
 #endif
