@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 16:33:49 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 18:31:48 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/02 09:11:57 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ int	main(int argc, char	**argv)
 		free(line);
 	}
 	if (sorted(stacks->a))
-		printf("Rataire");
+		write(1, "KO\n", 3);
 	else
-		printf("Reussille");
+		write(1, "OK\n", 3);
 	printlst(stacks->a); //to remove
 	printlst(stacks->b); //to remove
 	freestacks(stacks);
