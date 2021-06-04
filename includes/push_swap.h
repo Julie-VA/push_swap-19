@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/04 19:10:19 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/05 00:53:18 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int			sorted(t_list *a, int count);
 void		alg3(t_stacks *stacks);
 void		alg4(t_stacks *stacks);
 void		alg5_6(t_stacks *stacks, int count);
+void		algo(t_stacks *stacks, int count);
 
 //tabinitsort
 int			*lst_tab(t_list *a, int count);
