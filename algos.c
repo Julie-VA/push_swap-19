@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 09:56:40 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/04 19:27:36 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/04 20:58:49 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,10 @@ void	alg5_6(t_stacks *stacks, int count)
 	{
 		if (stacks->a->cont < tab[count - 3] && ++check)
 			pb(stacks, 1);
-		else
+		else if (stacks->a->next->cont < tab[count - 3])
 			ra(stacks, 1);
+		else
+			rra(stacks, 1);
 	}
 	alg3(stacks);
 	if (count == 5 && stacks->b->cont < stacks->b->next->cont)
