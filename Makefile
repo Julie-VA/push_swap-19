@@ -6,7 +6,7 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 11:31:42 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/06/02 10:08:00 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/06/04 18:49:49 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS_UTILS	= utils.c					\
 			modgnl_utils.c				\
 			errors.c					\
 			algos.c						\
+			tabinit_sort.c				\
 
 NAME		= $(PSWAP) $(CHECKER)
 PSWAP		= push_swap
