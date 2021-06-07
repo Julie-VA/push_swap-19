@@ -6,7 +6,7 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 11:31:42 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/06/07 10:09:23 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/06/07 11:52:07 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS_UTILS	= utils.c					\
 			modgnl.c					\
 			modgnl_utils.c				\
 			errors.c					\
-			algos3_6.c					\
+			algos4_6.c					\
 			algos3.c					\
 			algos.c						\
 			tabinit_sort.c				\

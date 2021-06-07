@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 23:59:35 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/07 10:22:38 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/07 14:41:47 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	algo_small(t_stacks *stacks, int count)
 		else
 			rra(stacks, 1);
 	}
+	free(tab);
 	alg3(stacks);
 	while (i-- > 0)
 		pa(stacks, 1);
@@ -78,12 +79,16 @@ void	algo(t_stacks *stacks, int count)
 			if (ft_lstsize(stacks->a) == 3)
 				break ;
 		}
-		alg3(stacks);
 		if (ft_lstsize(stacks->b) > 3)
 			mod_rev_alg3(stacks);
 		else
+		{
+			if (ft_lstsize(stacks->a) == 3)
+				alg3(stacks);
 			rev_alg3(stacks);
+		}
 	}
+	free(tab);
 	while (stacks->b)
 		pa(stacks, 1);
 }
