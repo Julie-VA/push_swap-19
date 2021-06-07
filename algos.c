@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 23:59:35 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/05 07:01:36 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/07 10:22:38 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ void	algo_small(t_stacks *stacks, int count)
 }
 //bien pour les petits trucs
 
-static int	is_in_part(int cont, int *part, int size)
+static int	is_in_part(int cont, int *part, int partsize)
 {
 	int	i;
 
 	i = 0;
-	while (i < size)
+	while (i < partsize)
 	{
 		if (cont == part[i])
 			return (1);
@@ -64,8 +64,6 @@ void	algo(t_stacks *stacks, int count)
 	{
 		loop = 0;
 		i = 0;
-		if (j + 3 > count)
-			break ;
 		while (i < 3)
 			part[i++] = tab[j++];
 		while (loop < 3)
@@ -77,7 +75,15 @@ void	algo(t_stacks *stacks, int count)
 				ra(stacks, 1);
 			else
 				rra(stacks, 1);
+			if (ft_lstsize(stacks->a) == 3)
+				break ;
 		}
-		// rev_alg3(stacks);
+		alg3(stacks);
+		if (ft_lstsize(stacks->b) > 3)
+			mod_rev_alg3(stacks);
+		else
+			rev_alg3(stacks);
 	}
+	while (stacks->b)
+		pa(stacks, 1);
 }

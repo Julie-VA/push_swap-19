@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:02:55 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 18:02:04 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/07 09:54:15 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,17 @@ int	ft_strcmp(char *s1, char *s2)
 		return (s1[i] - s2[i]);
 	else
 		return (0);
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
