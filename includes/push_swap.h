@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/07 12:06:18 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/07 16:05:18 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int			ft_atoi(const char *nptr, t_stacks *stacks, int *j, t_list **tmp);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 int			ft_strcmp(char *s1, char *s2);
 int			ft_lstsize(t_list *lst);
+int			ft_lstlast(t_list *lst);
 
 //setstacks
 t_stacks	*setstacks(char	**argv, int *count);
@@ -64,17 +65,17 @@ int			dupcheck(t_list	*a);
 int			sorted(t_list *a, int count);
 
 //algos
-void		alg3(t_stacks *s);
-void		rev_alg3(t_stacks *s);
 void		alg4(t_stacks *stacks);
 void		alg5_6(t_stacks *stacks, int count);
-void		algo_small(t_stacks *stacks, int count);
-void		algo(t_stacks *stacks, int count);
+void		alg_small(t_stacks *stacks, int count);
+void		alg_med(t_stacks *stacks, int count);
 
 //tabinitsort
 int			*lst_tab(t_list *a, int count);
 
 //algos3
+void		alg3(t_stacks *s);
+void		rev_alg3(t_stacks *s);
 void		mod_rev_alg3(t_stacks *s);
 
 #endif

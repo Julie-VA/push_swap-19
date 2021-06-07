@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:02:55 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/07 12:05:16 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/07 16:06:45 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,11 @@ int	ft_lstsize(t_list *lst)
 		i++;
 	}
 	return (i);
+}
+
+int	ft_lstlast(t_list *lst)
+{
+	while (lst->next)
+		lst = lst->next;
+	return (lst->cont);
 }
