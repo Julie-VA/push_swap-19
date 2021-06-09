@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 23:59:35 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/09 11:43:32 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/09 15:20:49 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,16 +115,6 @@ void	alg_med(t_stacks *stacks, int count)
 		pa(stacks, 1);
 }
 
-static void	printlst(t_list *lst)
-{
-	while (lst)
-	{
-		printf("%d\n", lst->cont);
-		lst = lst->next;
-	}
-	printf("\n");
-}
-
 void	algo(t_stacks *stacks, int count)
 {
 	int	*tab;
@@ -144,6 +134,9 @@ void	algo(t_stacks *stacks, int count)
 		i = 0;
 		while (i < 5)
 			part[i++] = tab[j++];
+		if (ft_lstsize(stacks->a) <= 5 + 3)
+			while (stacks->b->cont != max)
+				rrb(stacks, 1);
 		if (end_big_algs(stacks, tab, j - 5, 5 + 3) == 1)
 			break ;
 		while (loop < 5)
@@ -163,8 +156,6 @@ void	algo(t_stacks *stacks, int count)
 				{
 					while (1)
 					{
-						printlst(stacks->a); //to remove
-						printlst(stacks->b); //to remove
 						if (stacks->a->cont > max)
 						{
 							while (stacks->b->cont != max)
@@ -197,6 +188,6 @@ void	algo(t_stacks *stacks, int count)
 	}
 	// alg3(stacks);
 	free(tab);
-	// while (stacks->b)
-	// 	pa(stacks, 1);
+	while (stacks->b)
+		pa(stacks, 1);
 }
