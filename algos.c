@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 23:59:35 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/09 11:06:18 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/09 11:43:32 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,26 @@ static int	is_in_part(int cont, int *part, int partsize)
 	return (0);
 }
 
+static int	end_big_algs(t_stacks *stacks, int *tab, int j, int size)
+{
+	while (ft_lstsize(stacks->a) <= size && ft_lstsize(stacks->a) > 3)
+	{
+		if (stacks->a->cont == tab[j])
+		{
+			j++;
+			pb(stacks, 1);
+		}
+		else
+			ra(stacks, 1);
+		if (ft_lstsize(stacks->a) == 3)
+		{
+			alg3(stacks);
+			return (1);	
+		}
+	}
+	return (0);
+}
+
 void	alg_med(t_stacks *stacks, int count)
 {
 	int	*tab;
@@ -67,6 +87,8 @@ void	alg_med(t_stacks *stacks, int count)
 		i = 0;
 		while (i < 3)
 			part[i++] = tab[j++];
+		if (end_big_algs(stacks, tab, j - 3, 6) == 1)
+			break ;
 		while (loop < 3)
 		{
 			if (is_in_part(stacks->a->cont, part, 3) && ++loop)
@@ -122,6 +144,8 @@ void	algo(t_stacks *stacks, int count)
 		i = 0;
 		while (i < 5)
 			part[i++] = tab[j++];
+		if (end_big_algs(stacks, tab, j - 5, 5 + 3) == 1)
+			break ;
 		while (loop < 5)
 		{
 			if (is_in_part(stacks->a->cont, part, 5) && ++loop)
@@ -139,8 +163,6 @@ void	algo(t_stacks *stacks, int count)
 				{
 					while (1)
 					{
-						printf("cont=%d\n", stacks->a->cont);
-						printf("last=%d\n", ft_lstlast(stacks->b));
 						printlst(stacks->a); //to remove
 						printlst(stacks->b); //to remove
 						if (stacks->a->cont > max)
