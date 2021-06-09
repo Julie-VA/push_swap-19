@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 23:59:35 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/09 15:40:54 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/09 16:47:46 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,14 @@ void	algo(t_stacks *stacks, int count)
 								pb(stacks, 1);
 							break ;
 						}
+						else if (check < 5 && stacks->a->cont < max && stacks->a->cont < ft_lstlast(stacks->b))
+						{
+							while (stacks->b->cont != max)
+								rrb(stacks, 1);
+							pb(stacks, 1);
+							check++;
+							break ;
+						}
 						else
 							rb(stacks, 1);
 					}
@@ -182,6 +190,8 @@ void	algo(t_stacks *stacks, int count)
 				ra(stacks, 1);
 			else
 				rra(stacks, 1);
+			if (loop == 5)
+				check = 5;
 			if (ft_lstsize(stacks->a) == 3)
 				break ;
 		}
