@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 13:16:20 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/11 14:47:21 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/11 15:43:21 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,14 @@ void	algo(t_stacks *stacks, int count)
 	int	max;
 	int	racount;
 	int	rracount;
+	int	rrbcount;
 
 	tab = lst_tab(stacks->a, count);
 	j = 0;
 	check = 0;
 	racount = 0;
 	rracount = 0;
+	rrbcount = 0;
 	while (stacks->a->next->next->next)
 	{
 		loop = 0;
@@ -113,15 +115,25 @@ void	algo(t_stacks *stacks, int count)
 						{
 							while (stacks->b->cont != max)
 							{
-								// if (rracount > 0)
-								// {
-								// 	rrb(stacks, 0);
-								// 	write(1, "rrr\n", 4);
-								// 	rracount--;
-								// }
-								// else
-									rrb(stacks, 1);
+								rrb(stacks, 0);
+								rrbcount++;
 							}
+							// while(rracount > rrbcount)
+							// {
+							// 	write(1, "rra\n", 4);
+							// 	rracount--;
+							// }
+							// while (rracount == rrbcount && rracount > 0)
+							// {
+							// 	write(1, "rrr\n", 4);
+							// 	rracount--;
+							// 	rrbcount--;
+							// }
+							// while (rrbcount > 0 && rracount != rrbcount)
+							// {
+							// 	write(1, "rrb\n", 4);
+							// 	rrbcount--;
+							// }
 							pb(stacks, 1);
 							max = stacks->b->cont;
 							break ;
@@ -167,7 +179,7 @@ void	algo(t_stacks *stacks, int count)
 			{
 				while (!is_in_part(stacks->a->cont, part, 5))
 				{
-					rra(stacks, 0);
+					rra(stacks, 1);
 					rracount++;
 				}
 			}
