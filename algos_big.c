@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 13:16:20 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/11 14:14:48 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/11 14:47:21 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,14 @@ void	algo(t_stacks *stacks, int count)
 	int	loop;
 	int	check;
 	int	max;
+	int	racount;
+	int	rracount;
 
 	tab = lst_tab(stacks->a, count);
 	j = 0;
 	check = 0;
+	racount = 0;
+	rracount = 0;
 	while (stacks->a->next->next->next)
 	{
 		loop = 0;
@@ -108,7 +112,16 @@ void	algo(t_stacks *stacks, int count)
 						if (stacks->a->cont > max)
 						{
 							while (stacks->b->cont != max)
-								rrb(stacks, 1);
+							{
+								// if (rracount > 0)
+								// {
+								// 	rrb(stacks, 0);
+								// 	write(1, "rrr\n", 4);
+								// 	rracount--;
+								// }
+								// else
+									rrb(stacks, 1);
+							}
 							pb(stacks, 1);
 							max = stacks->b->cont;
 							break ;
@@ -124,7 +137,15 @@ void	algo(t_stacks *stacks, int count)
 						else if (check < 5 && stacks->a->cont < max && stacks->a->cont < ft_lstlast(stacks->b))
 						{
 							while (stacks->b->cont != max)
-								rrb(stacks, 1);
+							{
+								// if (rracount > 0)
+								// {
+								// 	rrr(stacks, 1);
+								// 	rracount--;
+								// }
+								// else
+									rrb(stacks, 1);
+							}
 							pb(stacks, 1);
 							check++;
 							break ;
@@ -137,12 +158,18 @@ void	algo(t_stacks *stacks, int count)
 			else if (get_half(stacks, part))
 			{
 				while (!is_in_part(stacks->a->cont, part, 5))
+				{
 					ra(stacks, 1);
+					// racount++;
+				}
 			}
 			else
 			{
 				while (!is_in_part(stacks->a->cont, part, 5))
-					rra(stacks, 1);
+				{
+					rra(stacks, 0);
+					rracount++;
+				}
 			}
 			if (loop == 5)
 				check = 5;
