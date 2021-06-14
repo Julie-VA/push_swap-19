@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 13:16:20 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/14 10:28:32 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/14 11:21:24 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,8 @@ void	algo(t_stacks *stacks, int count)
 						}
 						if (stacks->a->cont > stacks->b->cont)
 						{
-							if (stacks->a->cont > ft_lstlast(stacks->b))
+							if ((stacks->a->cont > ft_lstlast(stacks->b) && stacks->a->cont > ft_lstlast(stacks->b))
+								|| (stacks->a->cont < ft_lstlast(stacks->b) && stacks->a->cont < ft_lstlast(stacks->b)))
 								pb(stacks, 1);
 							break ;
 						}
