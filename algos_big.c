@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 09:36:27 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/14 14:49:44 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:37:51 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	algo_big_core(t_stacks *stacks, int *part)
 	{
 		if (loop == 0 && check > 0)
 		{
-			if (get_half(stacks, part))
+			if (get_half(stacks->a, part))
 				check = 4;
 			else
 				check = 5;

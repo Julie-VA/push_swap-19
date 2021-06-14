@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/14 14:33:40 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:35:50 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ void		algo_big(t_stacks *stacks, int count);
 int			is_in_part(int cont, int *part, int partsize);
 int			end_algo_med(t_stacks *stacks, int *tab, int j, int size);
 void		end_algo_big(t_stacks *stacks, int *tab, int j, int max);
-int			get_half(t_stacks *stacks, int *part);
+int			get_half(t_list *lst, int *part);
 
 #endif
