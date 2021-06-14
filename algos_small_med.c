@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 23:59:35 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/11 13:16:04 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/14 14:33:49 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	alg_med(t_stacks *stacks, int count)
 		i = 0;
 		while (i < 3)
 			part[i++] = tab[j++];
-		if (end_big_algs(stacks, tab, j - 3, 6) == 1)
+		if (end_algo_med(stacks, tab, j - 3, 6) == 1)
 			break ;
 		while (loop < 3)
 		{
