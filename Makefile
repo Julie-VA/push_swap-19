@@ -6,7 +6,7 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 11:31:42 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/06/11 13:17:02 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/06/14 09:55:50 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS_UTILS	= utils.c					\
 			algos3.c					\
 			algos_small_med.c			\
 			algos_big.c					\
+			algos_bigRE.c				\
 			algos_utils.c				\
 			tabinit_sort.c				\
 

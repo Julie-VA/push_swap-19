@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 13:16:20 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/11 16:47:56 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/14 10:28:32 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,48 @@
 // 		return (0);
 // }
 
+static void	write_more_rra(int rracount, int rrbcount)
+{
+	while (rracount > rrbcount)
+	{
+		write(1, "rra\n", 4);
+		rracount--;
+	}
+	while(rracount > 0)
+	{
+		write(1, "rrr\n", 4);
+		rracount--;
+	}
+}
+
+static void	write_less_rra(int rracount, int rrbcount)
+{
+	while (rracount > 0)
+	{
+		write(1, "rrr\n", 4);
+		rracount--;
+	}
+	while (rrbcount > 0)
+	{
+		write(1, "rrb\n", 4);
+		rrbcount--;
+	}
+}
+
+static void	write_normal_rra(int rracount, int rrbcount)
+{
+	while (rracount > 0)
+	{
+		write(1, "rra\n", 4);
+		rracount--;
+	}
+	while (rrbcount > 0)
+	{
+		write(1, "rrb\n", 4);
+		rrbcount--;
+	}
+}
+
 void	algo(t_stacks *stacks, int count)
 {
 	int	*tab;
@@ -73,10 +115,14 @@ void	algo(t_stacks *stacks, int count)
 	int	loop;
 	int	check;
 	int	max;
+	int	rracount;
+	int	rrbcount;
 
 	tab = lst_tab(stacks->a, count);
 	j = 0;
 	check = 0;
+	rracount = 0;
+	rrbcount = 0;
 	while (stacks->a->next->next->next)
 	{
 		loop = 0;
@@ -108,25 +154,45 @@ void	algo(t_stacks *stacks, int count)
 						if (stacks->a->cont > max)
 						{
 							while (stacks->b->cont != max)
-								rrb(stacks, 1);
+							{
+								rrb(stacks, 0);
+								rrbcount++;
+							}
+							if (rracount > rrbcount)
+								write_more_rra(rracount, rrbcount);
+							else if (rrbcount && rracount)
+								write_less_rra(rracount, rrbcount);
+							else
+								write_normal_rra(rracount, rrbcount);
 							pb(stacks, 1);
 							max = stacks->b->cont;
+							rracount = 0;
+							rrbcount = 0;
 							break ;
 						}
 						if (stacks->a->cont > stacks->b->cont)
 						{
-							if (stacks->a->cont > ft_lstlast(stacks->b) && stacks->a->cont > ft_lstlast(stacks->b))
-								pb(stacks, 1);
-							else if (stacks->a->cont < ft_lstlast(stacks->b) && stacks->a->cont < ft_lstlast(stacks->b))
+							if (stacks->a->cont > ft_lstlast(stacks->b))
 								pb(stacks, 1);
 							break ;
 						}
 						else if (check < 5 && stacks->a->cont < max && stacks->a->cont < ft_lstlast(stacks->b))
 						{
 							while (stacks->b->cont != max)
-								rrb(stacks, 1);
+							{
+								rrb(stacks, 0);
+								rrbcount++;
+							}
+							if (rracount > rrbcount)
+								write_more_rra(rracount, rrbcount);
+							else if (rrbcount && rracount)
+								write_less_rra(rracount, rrbcount);
+							else
+								write_normal_rra(rracount, rrbcount);
 							pb(stacks, 1);
-							check++;
+							max = stacks->b->cont;
+							rracount = 0;
+							rrbcount = 0;
 							break ;
 						}
 						else
@@ -138,14 +204,18 @@ void	algo(t_stacks *stacks, int count)
 					|| is_in_part(stacks->a->next->next->cont, part, 5))
 				ra(stacks, 1);
 			else
-				rra(stacks, 1);
+				while (!is_in_part(stacks->a->cont, part, 5))
+				{
+					rra(stacks, 0);
+					rracount++;
+				}
 			if (loop == 5)
 				check = 5;
 			if (ft_lstsize(stacks->a) == 3)
 				break ;
 		}
 	}
-	// alg3(stacks);
+	alg3(stacks);
 	free(tab);
 	while (stacks->b)
 		pa(stacks, 1);
