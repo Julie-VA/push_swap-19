@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 09:36:27 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/14 11:25:53 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/14 11:48:23 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,14 @@
 
 // static int	get_half(t_stacks *stacks, int *part)
 // {
-// 	int		size;
+// 	int	size;
+// 	int	rtnra;
+// 	int	rtnrra;
 
 // 	size = ft_lstsize(stacks->a);
-// 	if (get_half_ra(stacks, part, size) > get_half_rra(stacks, part, size))
+// 	rtnra = get_half_ra(stacks, part, size);
+// 	rtnrra = get_half_rra(stacks, part, size);
+// 	if (rtnra < rtnrra && rtnra > 0)
 // 		return (1);
 // 	else
 // 		return (0);
@@ -108,8 +112,19 @@ void	algo_big(t_stacks *stacks, int count)
 		loop = 0;
 		while (loop < 5)
 		{
-			while (!is_in_part(stacks->a->cont, part, 5))
-				ra(stacks, 1);
+			// if (loop == 0 && check > 0)
+			// {
+			// 	if (get_half(stacks, part))
+			// 		check = 5;
+			// 	else
+			// 		check = 4;
+			// }
+			// if (check == 4)
+			// 	while (!is_in_part(stacks->a->cont, part, 5))
+			// 		ra(stacks, 1);
+			// else
+				while (!is_in_part(stacks->a->cont, part, 5))
+					rra(stacks, 1);
 			if (loop <= 2 && check < 2)
 			{
 				pb(stacks, 1);
