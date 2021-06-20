@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/20 16:12:02 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/20 18:03:52 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,26 +64,33 @@ void		print_error(t_stacks *stacks);
 int			dupcheck(t_list	*a);
 int			sorted(t_list *a, int count);
 
-//algos
-void		alg4(t_stacks *stacks);
-void		alg5_6(t_stacks *stacks, int count);
-void		alg_small(t_stacks *stacks, int count);
-void		alg_med(t_stacks *stacks, int count);
-void		algo(t_stacks *stacks, int count);
-
 //tabinitsort
 int			*lst_tab(t_list *a, int count);
 
-//algos
+//algos3
 void		alg3(t_stacks *s);
 void		rev_alg3(t_stacks *s);
 void		mod_rev_alg3(t_stacks *s);
+
+//algos4_6
+void		alg4(t_stacks *stacks);
+void		alg5_6(t_stacks *stacks, int count);
+
+//algos_small_med
+void		alg_small(t_stacks *stacks, int count);
+void		alg_med(t_stacks *stacks, int count);
+
+//algos_big
 void		algo_big(t_stacks *stacks, int count);
 
 //algosutils
 int			is_in_part(int cont, int *part, int partsize);
 int			end_algo_med(t_stacks *stacks, int *tab, int j, int size);
 void		end_algo_big(t_stacks *stacks, int *tab, int j, int max);
-int			get_half(t_list *lst, int *part);
+
+//algobiggetrot
+int		get_rot_a(t_stacks *stacks, int *part, int size);
+int		get_rot_b_max(t_stacks *stacks, int max, int size);
+int		get_rot_b(t_stacks *stacks, int cont, int size);
 
 #endif
