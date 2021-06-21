@@ -160,8 +160,8 @@ static void	algo_big_core(t_stacks *stacks, int *part, int *max, int *min)
 	int	rota;
 
 	loop = 0;
-	if (ft_lstsize(stacks->a) >= 20)
-		partsize = 20;
+	if (ft_lstsize(stacks->a) >= 18)
+		partsize = 18;
 	else
 		partsize = ft_lstsize(stacks->a);
 	while (loop < partsize)
@@ -179,7 +179,7 @@ static void	algo_big_core(t_stacks *stacks, int *part, int *max, int *min)
 void	algo_big(t_stacks *stacks, int count)
 {
 	int	*tab;
-	int	part[20];
+	int	part[18];
 	int	max;
 	int	min;
 
@@ -188,9 +188,9 @@ void	algo_big(t_stacks *stacks, int count)
 	min = 0;
 	while (ft_lstsize(stacks->a) > 0)
 	{
-		make_part(tab, part, 20);
+		make_part(tab, part, 18);
 		algo_big_core(stacks, part, &max, &min);
-		if (ft_lstsize(stacks->a) < 20 && ft_lstsize(stacks->a) > 0)
+		if (ft_lstsize(stacks->a) < 18 && ft_lstsize(stacks->a) > 0)
 		{
 			make_part(tab, part, ft_lstsize(stacks->a));
 			algo_big_core(stacks, part, &max, &min);

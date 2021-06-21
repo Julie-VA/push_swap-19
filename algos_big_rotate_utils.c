@@ -83,7 +83,7 @@ int	get_rot_a(t_stacks *stacks, int *part, int size)
 	i = 0;
 	while (tmp)
 	{
-		if (is_in_part(tmp->cont, part, 20))
+		if (is_in_part(tmp->cont, part, 18))
 		{
 			top = i;
 			break ;
@@ -95,7 +95,7 @@ int	get_rot_a(t_stacks *stacks, int *part, int size)
 	i = 0;
 	while (tmp)
 	{
-		if (is_in_part(tmp->cont, part, 20))
+		if (is_in_part(tmp->cont, part, 18))
 			bottom = i;
 		i++;
 		tmp = tmp->next;
