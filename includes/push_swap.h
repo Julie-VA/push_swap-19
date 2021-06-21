@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/21 10:31:23 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/21 14:44:06 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,10 @@ void		alg_med(t_stacks *stacks, int count);
 
 //algos_big
 void		algo_big(t_stacks *stacks, int count);
+
+//algos_huge
+void		algo_huge(t_stacks *stacks, int count);
+int			get_rot_a_huge(t_stacks *stacks, int *part, int size);
 
 //algosutils
 int			is_in_part(int cont, int *part, int partsize);
