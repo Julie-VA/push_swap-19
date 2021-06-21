@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 23:59:35 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/14 14:33:49 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/21 16:23:33 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	alg_small(t_stacks *stacks, int count)
 	while (i-- > 0)
 		pa(stacks, 1);
 }
-//bien pour les petits trucs
 
 void	alg_med(t_stacks *stacks, int count)
 {

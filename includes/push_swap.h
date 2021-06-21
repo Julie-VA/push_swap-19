@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/21 15:42:58 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/21 16:04:30 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,22 @@ void		alg_med(t_stacks *stacks, int count);
 //algos_big
 void		algo_big(t_stacks *stacks, int count);
 
-//algobigutils
+//algos_huge
+void		algo_huge(t_stacks *stacks, int count);
+
+//algosbhutils
+void		rotate_ab(t_stacks *stacks, int val, int mod, int write);
+void		rotate_b(t_stacks *stacks, int *max, int *min, int rota);
+void		empty_b(t_stacks *stacks, int *max, int *min, int rota);
 void		make_part(int *tab, int *part, int partsize);
 
-void		rotate_ab(t_stacks *stacks, int val, int mod, int write);
-int			get_rot_a(t_stacks *stacks, int *part, int size);
+//algosbhgetrots
+int			get_rot_a(t_stacks *stacks, int *part, int size, int partsize);
 int			get_rot_b_max(t_stacks *stacks, int max, int size);
 int			get_rot_b(t_stacks *stacks, int cont, int size);
 
-//algos_huge
-void		algo_huge(t_stacks *stacks, int count);
-int			get_rot_a_huge(t_stacks *stacks, int *part, int size);
+//algosbhwriterots
+void		write_rotations(int rota, int rotb);
 
 //algosutils
 int			is_in_part(int cont, int *part, int partsize);
