@@ -6,11 +6,10 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 13:40:21 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/05/31 13:41:36 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/21 15:35:50 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "push_swap.h"
 
 int	ft_modstrlen(const char *s, int mod)
@@ -42,7 +41,7 @@ int	ft_strchr(const char *s, int c)
 	return (0);
 }
 
-char	*ft_strdup(const char *s)
+static char	*ft_strdup(const char *s)
 {
 	char	*dest;
 	int		i;
@@ -62,7 +61,7 @@ char	*ft_strdup(const char *s)
 	return (dest);
 }
 
-void	*ft_memmove(void *dest, const void *src, int n)
+static void	*ft_memmove(void *dest, const void *src, int n)
 {
 	char	*destcpy;
 	char	*srccpy;

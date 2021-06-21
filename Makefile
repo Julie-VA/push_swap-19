@@ -6,7 +6,7 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 11:31:42 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/06/21 14:45:27 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/06/21 15:39:22 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,15 +23,15 @@ SRCS_UTILS	= utils.c					\
 			modgnl.c					\
 			modgnl_utils.c				\
 			errors.c					\
-			algos4_6.c					\
-			algos3.c					\
-			algos_small_med.c			\
-			algos_big.c					\
-			algos_big_rotate_utils.c	\
-			algos_huge.c				\
-			algos_huge_rotate_utils.c	\
-			algos_utils.c				\
 			tabinit_sort.c				\
+			algos/algos4_6.c			\
+			algos/algos3.c				\
+			algos/algos_small_med.c		\
+			algos/algos_big.c			\
+			algos/algos_big_utils.c		\
+			algos/algos_huge.c			\
+			algos/algos_huge_utils.c	\
+			algos/algos_utils.c			\
 
 NAME		= $(PSWAP) $(CHECKER)
 PSWAP		= push_swap

@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/21 14:44:06 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/21 15:42:58 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 typedef struct s_list
 {
@@ -44,7 +43,6 @@ int			rrr(t_stacks *stacks, int mod);
 
 //utils
 int			ft_atoi(const char *nptr, t_stacks *stacks, int *j, t_list **tmp);
-void		ft_lstadd_front(t_list **lst, t_list *new);
 int			ft_strcmp(char *s1, char *s2);
 int			ft_lstsize(t_list *lst);
 int			ft_lstlast(t_list *lst);
@@ -83,6 +81,14 @@ void		alg_med(t_stacks *stacks, int count);
 //algos_big
 void		algo_big(t_stacks *stacks, int count);
 
+//algobigutils
+void		make_part(int *tab, int *part, int partsize);
+
+void		rotate_ab(t_stacks *stacks, int val, int mod, int write);
+int			get_rot_a(t_stacks *stacks, int *part, int size);
+int			get_rot_b_max(t_stacks *stacks, int max, int size);
+int			get_rot_b(t_stacks *stacks, int cont, int size);
+
 //algos_huge
 void		algo_huge(t_stacks *stacks, int count);
 int			get_rot_a_huge(t_stacks *stacks, int *part, int size);
@@ -90,13 +96,5 @@ int			get_rot_a_huge(t_stacks *stacks, int *part, int size);
 //algosutils
 int			is_in_part(int cont, int *part, int partsize);
 int			end_algo_med(t_stacks *stacks, int *tab, int j, int size);
-void		end_algo_big(t_stacks *stacks, int *tab, int j, int max);
-
-//algobigrotateutils
-void		rotate_ab(t_stacks *stacks, int val, int mod);
-void		rotate_ab_nowrite(t_stacks *stacks, int val, int mod);
-int			get_rot_a(t_stacks *stacks, int *part, int size);
-int			get_rot_b_max(t_stacks *stacks, int max, int size);
-int			get_rot_b(t_stacks *stacks, int cont, int size);
 
 #endif
