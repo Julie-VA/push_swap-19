@@ -12,38 +12,18 @@
 
 #include "push_swap.h"
 
-static void	rotate_ab(t_stacks *stacks, int val, int mod)
+static void	empty_b(t_stacks *stacks, int *max, int *min, int rota)
 {
-	if (mod == 0)
+	while (rota > 0)
 	{
-		while (val > 0)
-		{
-			ra(stacks, 1);
-			val--;
-		}
-		while (val < 0)
-		{
-			rra(stacks, 1);
-			val++;
-		}
+		write(1, "ra\n", 3);
+		rota--;
 	}
-	else if (mod == 1)
+	while (rota < 0)
 	{
-		while (val > 0)
-		{
-			rb(stacks, 1);
-			val--;
-		}
-		while (val < 0)
-		{
-			rrb(stacks, 1);
-			val++;
-		}
+		write(1, "rra\n", 4);
+		rota++;
 	}
-}
-
-static void	empty_b(t_stacks *stacks, int *max, int *min)
-{
 	if (ft_lstsize(stacks->b) == 0)
 		pb(stacks, 1);
 	else if (ft_lstsize(stacks->b) == 1)
@@ -67,38 +47,133 @@ static void	make_part(int *tab, int *part, int partsize)
 		part[i++] = tab[j++];
 }
 
-static int	end_algo(t_stacks *stacks, int *part, int max, int min)
+static void	write_rotations(int rota, int rotb)
+{
+	int	check;
+	int	rrcount;
+
+	check = 0;
+	if (rota < 0 && rotb < 0)
+	{
+		rota *= -1;
+		rotb *= -1;
+		check = 1;
+	}
+	if (rota > 0 && rotb > 0)
+	{
+		if (rota > rotb)
+		{
+			rrcount = rotb;
+			rota -= rrcount;
+			rotb = 0;
+		}
+		else if (rota < rotb)
+		{
+			rrcount = rota;
+			rotb -= rrcount;
+			rota = 0;
+		}
+		else if (rota == rotb)
+		{
+			rrcount = rota;
+			rota = 0;
+			rotb = 0;
+		}
+		while (rota > 0)
+		{
+			if (check == 0)
+				write(1, "ra\n", 3);
+			else
+				write(1, "rra\n", 4);
+			rota--;
+		}
+		while (rrcount > 0)
+		{
+			if (check == 0)
+				write(1, "rr\n", 3);
+			else
+				write(1, "rrr\n", 4);
+			rrcount--;
+		}
+		while (rotb > 0)
+		{
+			if (check == 0)
+				write(1, "rb\n", 3);
+			else
+				write(1, "rrb\n", 4);
+			rotb--;
+		}
+	}
+	else
+	{
+		while (rota > 0)
+		{
+			write(1, "ra\n", 3);
+			rota--;
+		}
+		while (rota < 0)
+		{
+			write(1, "rra\n", 4);
+			rota++;
+		}
+		while (rotb > 0)
+		{
+			write(1, "rb\n", 3);
+			rotb--;
+		}
+		while (rotb < 0)
+		{
+			write(1, "rrb\n", 4);
+			rotb++;
+		}
+	}
+}
+
+static void	rotate_b(t_stacks *stacks, int *max, int *min, int rota)
+{
+	int	rotb;
+	
+	if (stacks->a->cont > *max || stacks->a->cont < *min)
+	{
+		rotb = get_rot_b_max(stacks, *max, ft_lstsize(stacks->b));
+		rotate_ab_nowrite(stacks, rotb, 1);
+		write_rotations(rota, rotb);
+		if (stacks->a->cont > *max)
+			*max = stacks->a->cont;
+		else if (stacks->a->cont < *min)
+			*min = stacks->a->cont;
+		pb(stacks, 1);
+	}
+	else
+	{
+		rotb = get_rot_b(stacks, stacks->a->cont, ft_lstsize(stacks->b));
+		rotate_ab_nowrite(stacks, rotb, 1);
+		write_rotations(rota, rotb);
+		pb(stacks, 1);
+	}
+}
+
+static void	algo_big_core(t_stacks *stacks, int *part, int *max, int *min)
 {
 	int	loop;
 	int	partsize;
+	int	rota;
 
 	loop = 0;
-	partsize = ft_lstsize(stacks->a);
+	if (ft_lstsize(stacks->a) >= 20)
+		partsize = 20;
+	else
+		partsize = ft_lstsize(stacks->a);
 	while (loop < partsize)
 	{
-		rotate_ab(stacks, get_rot_a(stacks, part, ft_lstsize(stacks->a)), 0);
+		rota = get_rot_a(stacks, part, ft_lstsize(stacks->a));
+		rotate_ab_nowrite(stacks, rota, 0);
 		if (ft_lstsize(stacks->b) < 2)
-			empty_b(stacks, &max, &min);
+			empty_b(stacks, max, min, rota);
 		else
-		{
-			if (stacks->a->cont > max || stacks->a->cont < min)
-			{
-				rotate_ab(stacks, get_rot_b_max(stacks, max, ft_lstsize(stacks->b)), 1);
-				if (stacks->a->cont > max)
-					max = stacks->a->cont;
-				else if (stacks->a->cont < min)
-					min = stacks->a->cont;
-				pb(stacks, 1);
-			}
-			else
-			{
-				rotate_ab(stacks, get_rot_b(stacks, stacks->a->cont, ft_lstsize(stacks->b)), 1);
-				pb(stacks, 1);
-			}
-		}
+			rotate_b(stacks, max, min, rota);
 		loop++;
 	}
-	return (max);
 }
 
 void	algo_big(t_stacks *stacks, int count)
@@ -107,44 +182,18 @@ void	algo_big(t_stacks *stacks, int count)
 	int	part[20];
 	int	max;
 	int	min;
-	int	loop;
 
 	tab = lst_tab(stacks->a, count);
 	max = 0;
 	min = 0;
-	loop = 0;
 	while (ft_lstsize(stacks->a) > 0)
 	{
 		make_part(tab, part, 20);
-		loop = 0;
-		while (loop < 20)
-		{
-			rotate_ab(stacks, get_rot_a(stacks, part, ft_lstsize(stacks->a)), 0);
-			if (ft_lstsize(stacks->b) < 2)
-				empty_b(stacks, &max, &min);
-			else
-			{
-				if (stacks->a->cont > max || stacks->a->cont < min)
-				{
-					rotate_ab(stacks, get_rot_b_max(stacks, max, ft_lstsize(stacks->b)), 1);
-					if (stacks->a->cont > max)
-						max = stacks->a->cont;
-					else if (stacks->a->cont < min)
-						min = stacks->a->cont;
-					pb(stacks, 1);
-				}
-				else
-				{
-					rotate_ab(stacks, get_rot_b(stacks, stacks->a->cont, ft_lstsize(stacks->b)), 1);
-					pb(stacks, 1);
-				}
-			}
-			loop++;
-		}
+		algo_big_core(stacks, part, &max, &min);
 		if (ft_lstsize(stacks->a) < 20 && ft_lstsize(stacks->a) > 0)
 		{
 			make_part(tab, part, ft_lstsize(stacks->a));
-			max = end_algo(stacks, part, max, min);
+			algo_big_core(stacks, part, &max, &min);
 		}
 	}
 	free(tab);

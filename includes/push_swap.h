@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/20 18:03:52 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/21 10:31:23 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,11 @@ int			is_in_part(int cont, int *part, int partsize);
 int			end_algo_med(t_stacks *stacks, int *tab, int j, int size);
 void		end_algo_big(t_stacks *stacks, int *tab, int j, int max);
 
-//algobiggetrot
-int		get_rot_a(t_stacks *stacks, int *part, int size);
-int		get_rot_b_max(t_stacks *stacks, int max, int size);
-int		get_rot_b(t_stacks *stacks, int cont, int size);
+//algobigrotateutils
+void		rotate_ab(t_stacks *stacks, int val, int mod);
+void		rotate_ab_nowrite(t_stacks *stacks, int val, int mod);
+int			get_rot_a(t_stacks *stacks, int *part, int size);
+int			get_rot_b_max(t_stacks *stacks, int max, int size);
+int			get_rot_b(t_stacks *stacks, int cont, int size);
 
 #endif

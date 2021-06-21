@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 10:57:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/20 18:26:16 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/21 11:33:38 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	selectalgo(t_stacks *stacks, int count)
 		alg4(stacks);
 	else if (count == 5 || count == 6)
 		alg5_6(stacks, count);
-	else if (count <= 19)
+	else if (count <= 20)
 		alg_small(stacks, count);
 	else
 		algo_big(stacks, count);
