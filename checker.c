@@ -6,27 +6,14 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 16:33:49 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/05 00:53:30 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/25 17:37:42 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	printlst(t_list *lst)
+static int	selectope_helper(char *line, t_stacks *stacks, int check)
 {
-	printf("\n");
-	while (lst)
-	{
-		printf("%d\n", lst->cont);
-		lst = lst->next;
-	}
-}
-
-static int	selectope(char *line, t_stacks *stacks)
-{
-	int	check;
-
-	check = 0;
 	if (!ft_strcmp(line, "sa"))
 		check = sa(stacks, 0);
 	else if (!ft_strcmp(line, "sb"))
@@ -52,6 +39,14 @@ static int	selectope(char *line, t_stacks *stacks)
 	return (check);
 }
 
+static int	selectope(char *line, t_stacks *stacks)
+{
+	int	check;
+
+	check = 0;
+	return (selectope_helper(line, stacks, count));
+}
+
 int	main(int argc, char	**argv)
 {
 	t_stacks	*stacks;
@@ -61,14 +56,10 @@ int	main(int argc, char	**argv)
 
 	stacks = setstacks(argv, &count);
 	if (!stacks)
-	{
-		// system("leaks checker");
 		return (0);
-	}
 	if (dupcheck(stacks->a))
 	{
 		print_error(stacks);
-		// system("leaks checker");
 		return (0);
 	}
 	while (get_next_line(0, &line))
@@ -76,7 +67,6 @@ int	main(int argc, char	**argv)
 		if (!selectope(line, stacks))
 		{
 			print_error(stacks);
-			// system("leaks checker");
 			return (0);
 		}
 		free(line);
@@ -85,9 +75,6 @@ int	main(int argc, char	**argv)
 		write(1, "KO\n", 3);
 	else
 		write(1, "OK\n", 3);
-	printlst(stacks->a); //to remove
-	printlst(stacks->b); //to remove
 	freestacks(stacks);
-	// system("leaks checker");
 	return (0);
 }
