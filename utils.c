@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:02:55 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/07 16:06:45 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/25 18:07:20 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_atoi(const char *nptr, t_stacks *stacks, int *j, t_list **tmp)
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')

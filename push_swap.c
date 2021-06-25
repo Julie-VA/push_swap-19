@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 10:57:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/25 17:21:52 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/25 18:05:20 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
 	int			count;
-	(void)argc;
 
+	(void)argc;
 	stacks = setstacks(argv, &count);
 	if (!stacks)
 		return (0);

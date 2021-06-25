@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 18:47:01 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/04 18:54:33 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/25 18:06:54 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_swap(int *a, int *b)
 {
-	int temp;
+	int	temp;
 
 	temp = *a;
 	*a = *b;
@@ -23,8 +23,8 @@ static void	ft_swap(int *a, int *b)
 
 static void	ft_sort_int_tab(int *tab, int size)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < size - 1)
