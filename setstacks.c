@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:58:55 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/07 12:05:24 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/26 16:37:49 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,41 +63,49 @@ static int	setstacks_split(char **argv, t_list **tmp, int i, int j)
 	}
 }
 
-t_stacks	*setstacks(char	**argv, int *count)
+static int	setstacks_gen(t_stacks *stacks, int *count, char **argv, t_list **tmp)
 {
-	t_stacks	*stacks;
-	t_list		*tmp;
-	int			i;
-	int			j;
+	int	i;
+	int	j;
 
-	stacks = (t_stacks *)malloc(sizeof(t_stacks));
 	i = 1;
-	stacks->a = (t_list *)malloc(sizeof(t_list));
-	tmp = stacks->a;
-	stacks->b = NULL;
 	while (argv[i])
 	{
 		j = 0;
 		while (argv[i][j])
 		{
-			tmp->cont = ft_atoi(argv[i] + j, stacks, &j, &tmp);
+			(*tmp)->cont = ft_atoi(argv[i] + j, stacks, &j, tmp);
 			(*count)++;
 			if (j == -1)
-				return (NULL);
-			j = setstacks_split(argv, &tmp, i, j);
+				return (0);
+			j = setstacks_split(argv, tmp, i, j);
 			if (j == -1)
 			{
 				print_error(stacks);
-				return (NULL);
+				return (0);
 			}
 		}
 		i++;
 		if (argv[i])
 		{
-			tmp->next = (t_list *)malloc(sizeof(t_list));
-			tmp = tmp->next;
+			(*tmp)->next = (t_list *)malloc(sizeof(t_list));
+			*tmp = (*tmp)->next;
 		}
 	}
+	return (1);
+}
+
+t_stacks	*setstacks(char	**argv, int *count)
+{
+	t_stacks	*stacks;
+	t_list		*tmp;
+
+	stacks = (t_stacks *)malloc(sizeof(t_stacks));
+	stacks->a = (t_list *)malloc(sizeof(t_list));
+	tmp = stacks->a;
+	stacks->b = NULL;
+	if (!setstacks_gen(stacks, count, argv, &tmp))
+		return (NULL);
 	tmp->next = NULL;
 	return (stacks);
 }
