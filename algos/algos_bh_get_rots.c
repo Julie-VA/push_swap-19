@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:56:54 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/27 15:47:38 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/27 15:49:51 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	get_rot_a_helper(t_list *tmp, int *part, int partsize)
 {
 	int	i;
-	int bottom;
+	int	bottom;
 
 	i = 0;
 	bottom = 0;

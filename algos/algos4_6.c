@@ -6,27 +6,14 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 09:56:40 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/07 13:55:06 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/27 16:01:47 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	alg4(t_stacks *stacks)
+static void	alg4_part2(t_stacks *stacks)
 {
-	pb(stacks, 1);
-	pb(stacks, 1);
-	if (stacks->a->cont > stacks->a->next->cont
-		&& stacks->b->cont < stacks->b->next->cont)
-		ss(stacks, 1);
-	else
-	{
-		if (stacks->a->cont > stacks->a->next->cont)
-			sa(stacks, 1);
-		if (stacks->b->cont < stacks->b->next->cont)
-			sb(stacks, 1);
-	}
-	pa(stacks, 1);
 	if (stacks->a->cont > stacks->a->next->next->cont)
 	{
 		if (stacks->b->cont < stacks->a->next->next->cont)
@@ -44,6 +31,37 @@ void	alg4(t_stacks *stacks)
 	pa(stacks, 1);
 	if (stacks->a->cont > stacks->a->next->cont)
 		sa(stacks, 1);
+}
+
+void	alg4(t_stacks *stacks)
+{
+	pb(stacks, 1);
+	pb(stacks, 1);
+	if (stacks->a->cont > stacks->a->next->cont
+		&& stacks->b->cont < stacks->b->next->cont)
+		ss(stacks, 1);
+	else
+	{
+		if (stacks->a->cont > stacks->a->next->cont)
+			sa(stacks, 1);
+		if (stacks->b->cont < stacks->b->next->cont)
+			sb(stacks, 1);
+	}
+	pa(stacks, 1);
+	alg4_part2(stacks);
+}
+
+static void	alg5_6_part2(t_stacks *stacks, int count, int check)
+{
+	alg3(stacks);
+	if (count == 5 && stacks->b->cont < stacks->b->next->cont)
+		sb(stacks, 1);
+	else if (count == 6)
+		rev_alg3(stacks);
+	if (count == 5)
+		check--;
+	while (check-- > 0)
+		pa(stacks, 1);
 }
 
 void	alg5_6(t_stacks *stacks, int count)
@@ -66,13 +84,5 @@ void	alg5_6(t_stacks *stacks, int count)
 			rra(stacks, 1);
 	}
 	free(tab);
-	alg3(stacks);
-	if (count == 5 && stacks->b->cont < stacks->b->next->cont)
-		sb(stacks, 1);
-	else if (count == 6)
-		rev_alg3(stacks);
-	if (count == 5)
-		check--;
-	while (check-- > 0)
-		pa(stacks, 1);
+	alg5_6_part2(stacks, count, check);
 }
