@@ -14,38 +14,28 @@
 
 void	rotate_ab(t_stacks *stacks, int val, int mod, int write)
 {
-	if (mod == 0)
+	while (val > 0)
 	{
-		while (val > 0)
-		{
+		if (mod == 0)
 			ra(stacks, write);
-			val--;
-		}
-		while (val < 0)
-		{
-			rra(stacks, write);
-			val++;
-		}
-	}
-	else if (mod == 1)
-	{
-		while (val > 0)
-		{
+		else if (mod == 1)
 			rb(stacks, write);
-			val--;
-		}
-		while (val < 0)
-		{
+		val--;
+	}
+	while (val < 0)
+	{
+		if (mod == 0)
+			rra(stacks, write);
+		else if (mod == 1)
 			rrb(stacks, write);
-			val++;
-		}
+		val++;
 	}
 }
 
 void	rotate_b(t_stacks *stacks, int *max, int *min, int rota)
 {
 	int	rotb;
-	
+
 	if (stacks->a->cont > *max || stacks->a->cont < *min)
 	{
 		rotb = get_rot_b_max(stacks, *max, ft_lstsize(stacks->b));

@@ -6,11 +6,28 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:56:54 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/21 16:03:08 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/27 15:47:38 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	get_rot_a_helper(t_list *tmp, int *part, int partsize)
+{
+	int	i;
+	int bottom;
+
+	i = 0;
+	bottom = 0;
+	while (tmp)
+	{
+		if (is_in_part(tmp->cont, part, partsize))
+			bottom = i;
+		i++;
+		tmp = tmp->next;
+	}
+	return (bottom);
+}
 
 int	get_rot_a(t_stacks *stacks, int *part, int size, int partsize)
 {
@@ -32,14 +49,7 @@ int	get_rot_a(t_stacks *stacks, int *part, int size, int partsize)
 		tmp = tmp->next;
 	}
 	tmp = stacks->a;
-	i = 0;
-	while (tmp)
-	{
-		if (is_in_part(tmp->cont, part, partsize))
-			bottom = i;
-		i++;
-		tmp = tmp->next;
-	}
+	bottom = get_rot_a_helper(tmp, part, partsize);
 	bottom = size - bottom;
 	if (top < bottom)
 		return (top);
