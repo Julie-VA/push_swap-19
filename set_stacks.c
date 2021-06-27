@@ -1,43 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setstacks.c                                        :+:      :+:    :+:   */
+/*   set_stacks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:58:55 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/27 15:06:51 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/27 15:10:32 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	ft_lstclear(t_list **lst)
-{
-	t_list	*ptr;
-	t_list	*temp;
-
-	if (!lst)
-		return ;
-	ptr = *lst;
-	while (ptr)
-	{
-		temp = ptr->next;
-		free(ptr);
-		ptr = temp;
-	}
-	*lst = NULL;
-}
-
-void	freestacks(t_stacks *stacks)
-{
-	if (stacks->a)
-		ft_lstclear(&stacks->a);
-	if (stacks->b)
-		ft_lstclear(&stacks->b);
-	if (stacks)
-		free(stacks);
-}
 
 static int	setstacks_split(char **argv, t_list **tmp, int i, int j)
 {

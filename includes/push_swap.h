@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/21 16:04:30 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/27 15:11:07 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int			ft_lstlast(t_list *lst);
 
 //setstacks
 t_stacks	*setstacks(char	**argv, int *count);
+
+//freestacks
 void		freestacks(t_stacks *stacks);
 
 //gnl

@@ -6,7 +6,7 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 11:31:42 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/06/21 16:22:52 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/06/27 15:11:11 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,10 @@ SRCS_UTILS	= algos/algos_bh_get_rots.c	\
 			operations/rotate.c			\
 			operations/swap.c			\
 			errors.c					\
+			free_stacks.c				\
 			modgnl_utils.c				\
 			modgnl.c					\
-			setstacks.c					\
+			set_stacks.c				\
 			tabinit_sort.c				\
 			utils.c						\
 
