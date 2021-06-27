@@ -6,7 +6,7 @@
 #    By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 11:31:42 by rvan-aud          #+#    #+#              #
-#    Updated: 2021/06/27 15:11:11 by rvan-aud         ###   ########.fr        #
+#    Updated: 2021/06/27 15:17:07 by rvan-aud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS_UTILS	= algos/algos_bh_get_rots.c	\
 			algos/algos_bh_utils.c		\
 			algos/algos_big.c			\
 			algos/algos_huge.c			\
-			algos/algos_small_med.c		\
+			algos/algos_small.c			\
 			algos/algos_utils.c			\
 			algos/algos3.c				\
 			algos/algos4_6.c			\

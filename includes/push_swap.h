@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/27 15:11:07 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/27 15:17:22 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,8 @@ void		mod_rev_alg3(t_stacks *s);
 void		alg4(t_stacks *stacks);
 void		alg5_6(t_stacks *stacks, int count);
 
-//algos_small_med
+//algos_small
 void		alg_small(t_stacks *stacks, int count);
-void		alg_med(t_stacks *stacks, int count);
 
 //algos_big
 void		algo_big(t_stacks *stacks, int count);
@@ -102,6 +101,5 @@ void		write_rotations(int rota, int rotb);
 
 //algosutils
 int			is_in_part(int cont, int *part, int partsize);
-int			end_algo_med(t_stacks *stacks, int *tab, int j, int size);
 
 #endif
