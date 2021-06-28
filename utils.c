@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:02:55 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/28 10:04:54 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/28 10:12:33 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	checksign(const char *nptr, int *i, int *sign)
 	}
 }
 
-int	ft_atoi(const char *nptr, t_stacks *stacks, int *j, t_list **tmp)
+int	ft_atoi(const char *nptr, int *j, t_list **tmp)
 {
 	int				sign;
 	int				i;
@@ -43,7 +43,6 @@ int	ft_atoi(const char *nptr, t_stacks *stacks, int *j, t_list **tmp)
 	{
 		*j = -1;
 		(*tmp)->next = NULL;
-		print_error(stacks);
 		return (0);
 	}
 	return ((int)rtrnval);

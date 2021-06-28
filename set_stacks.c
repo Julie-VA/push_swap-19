@@ -6,48 +6,48 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:58:55 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/28 10:10:43 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/28 10:21:37 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	setstacks_split(char **argv, t_list **tmp, int i, int j)
+static int	setstacks_split(char **argv, t_list **tmp, int i, int *j)
 {
-	j++;
-	while (argv[i][j] >= '0' && argv[i][j] <= '9')
-		j++;
-	if (argv[i][j] == ' ')
+	(*j)++;
+	while (argv[i][*j] >= '0' && argv[i][*j] <= '9')
+		(*j)++;
+	if (argv[i][*j] == ' ')
 	{
-		j++;
-		if ((argv[i][j] >= '0' && argv[i][j] <= '9') || argv[i][j] == '-')
+		(*j)++;
+		if ((argv[i][*j] >= '0' && argv[i][*j] <= '9') || argv[i][*j] == '-')
 		{
 			(*tmp)->next = (t_list *)malloc(sizeof(t_list));
 			*tmp = (*tmp)->next;
 		}
-		return (j);
+		return (1);
 	}
-	else if (!argv[i][j])
-		return (j);
+	else if (!argv[i][*j])
+		return (1);
 	else
 	{
 		(*tmp)->next = NULL;
-		return (-1);
+		return (0);
 	}
 }
 
-static int	setstacks_gen_helper(int j, t_stacks *s)
+static int	not_number(t_list **tmp, char **argv, int i, int j)
 {
-	if (j == -1)
+	if ((argv[i][j] < '0' || argv[i][j] > '9') && argv[i][j] != '-')
 	{
-		print_error(s);
+		(*tmp)->next = NULL;
 		return (0);
 	}
 	else
 		return (1);
 }
 
-static int	setstacks_gen(t_stacks *s, int *count, char **argv, t_list **tmp)
+static int	setstacks_gen(int *count, char **argv, t_list **tmp)
 {
 	int	i;
 	int	j;
@@ -58,18 +58,13 @@ static int	setstacks_gen(t_stacks *s, int *count, char **argv, t_list **tmp)
 		j = 0;
 		while (argv[i][j])
 		{
-			if ((argv[i][j] < '0' || argv[i][j] > '9') && argv[i][j] != '-')
-			{
-				(*tmp)->next = NULL;
-				print_error(s);
+			if (!not_number(tmp, argv, i, j))
 				return (0);
-			}
-			(*tmp)->cont = ft_atoi(argv[i] + j, s, &j, tmp);
+			(*tmp)->cont = ft_atoi(argv[i] + j, &j, tmp);
 			(*count)++;
 			if (j == -1)
 				return (0);
-			j = setstacks_split(argv, tmp, i, j);
-			if (!setstacks_gen_helper(j, s))
+			if (!setstacks_split(argv, tmp, i, &j))
 				return (0);
 		}
 		if (argv[++i])
@@ -90,8 +85,11 @@ t_stacks	*setstacks(char	**argv, int *count)
 	stacks->a = (t_list *)malloc(sizeof(t_list));
 	tmp = stacks->a;
 	stacks->b = NULL;
-	if (!setstacks_gen(stacks, count, argv, &tmp))
+	if (!setstacks_gen(count, argv, &tmp))
+	{
+		print_error(stacks);
 		return (NULL);
+	}
 	tmp->next = NULL;
 	return (stacks);
 }

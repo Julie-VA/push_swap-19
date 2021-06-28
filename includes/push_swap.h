@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/28 10:05:00 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/28 10:12:44 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			rrb(t_stacks *stacks, int mod);
 int			rrr(t_stacks *stacks, int mod);
 
 //utils
-int			ft_atoi(const char *nptr, t_stacks *stacks, int *j, t_list **tmp);
+int			ft_atoi(const char *nptr, int *j, t_list **tmp);
 int			ft_strcmp(char *s1, char *s2);
 int			ft_lstsize(t_list *lst);
 int			ft_lstlast(t_list *lst);
