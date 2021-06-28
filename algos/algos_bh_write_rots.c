@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:03:03 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/27 15:32:17 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/28 09:29:37 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static void	bothpos_count(int rota, int rotb, int check)
 {
 	int	rrcount;
 
+	rrcount = 0;
 	if (rota > rotb)
 	{
 		rrcount = rotb;

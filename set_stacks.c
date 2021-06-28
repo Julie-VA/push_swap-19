@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:58:55 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/27 15:10:32 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/28 10:10:43 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ static int	setstacks_gen(t_stacks *s, int *count, char **argv, t_list **tmp)
 		j = 0;
 		while (argv[i][j])
 		{
+			if ((argv[i][j] < '0' || argv[i][j] > '9') && argv[i][j] != '-')
+			{
+				(*tmp)->next = NULL;
+				print_error(s);
+				return (0);
+			}
 			(*tmp)->cont = ft_atoi(argv[i] + j, s, &j, tmp);
 			(*count)++;
 			if (j == -1)

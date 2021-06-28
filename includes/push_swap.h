@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:16:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/27 15:17:22 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/28 10:05:00 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ int			ft_strcmp(char *s1, char *s2);
 int			ft_lstsize(t_list *lst);
 int			ft_lstlast(t_list *lst);
 
-//setstacks
+//set_stacks
 t_stacks	*setstacks(char	**argv, int *count);
 
-//freestacks
+//free_stacks
 void		freestacks(t_stacks *stacks);
 
-//gnl
+//modgnl & modgnl_utils
 int			get_next_line(int fd, char **line);
 int			ft_strchr(const char *s, int c);
 int			ft_modstrlen(const char *s, int mod);
@@ -64,7 +64,7 @@ void		print_error(t_stacks *stacks);
 int			dupcheck(t_list	*a);
 int			sorted(t_list *a, int count);
 
-//tabinitsort
+//tabinit_sort
 int			*lst_tab(t_list *a, int count);
 
 //algos3
@@ -85,21 +85,21 @@ void		algo_big(t_stacks *stacks, int count);
 //algos_huge
 void		algo_huge(t_stacks *stacks, int count);
 
-//algosbhutils
+//algos_bh_utils
 void		rotate_ab(t_stacks *stacks, int val, int mod, int write);
 void		rotate_b(t_stacks *stacks, int *max, int *min, int rota);
 void		empty_b(t_stacks *stacks, int *max, int *min, int rota);
 void		make_part(int *tab, int *part, int partsize);
 
-//algosbhgetrots
+//algos_bh_get_rots
 int			get_rot_a(t_stacks *stacks, int *part, int size, int partsize);
 int			get_rot_b_max(t_stacks *stacks, int max, int size);
 int			get_rot_b(t_stacks *stacks, int cont, int size);
 
-//algosbhwriterots
+//algos_bh_write_rots
 void		write_rotations(int rota, int rotb);
 
-//algosutils
+//algos_utils
 int			is_in_part(int cont, int *part, int partsize);
 
 #endif
