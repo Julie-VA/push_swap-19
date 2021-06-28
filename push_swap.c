@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 10:57:15 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/28 10:38:37 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/06/28 15:43:13 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	main(int argc, char **argv)
 	t_stacks	*stacks;
 	int			count;
 
-	if (argc <= 2)
+	count = 0;
+	if (argc <= 1)
 		return (0);
 	stacks = setstacks(argv, &count);
 	if (!stacks)
@@ -46,7 +47,10 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	if (!sorted(stacks->a, count))
+	{
+		freestacks(stacks);
 		return (0);
+	}
 	else
 		selectalgo(stacks, count);
 	freestacks(stacks);
