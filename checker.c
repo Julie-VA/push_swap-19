@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 16:33:49 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/25 17:58:39 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/07/01 19:25:34 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,20 @@ static int	selectope(char *line, t_stacks *stacks)
 	int	check;
 
 	check = 0;
+	if (ft_lstsize(stacks->a) < 2 && (!ft_strcmp(line, "sa")
+	|| !ft_strcmp(line, "ra") || !ft_strcmp(line, "rra")))
+		return (1);
+	if (ft_lstsize(stacks->b) < 2 && (!ft_strcmp(line, "sb")
+	|| !ft_strcmp(line, "rb") || !ft_strcmp(line, "rrb")))
+		return (1);
+	if ((ft_lstsize(stacks->a) < 2 || ft_lstsize(stacks->b) < 2)
+	&& (!ft_strcmp(line, "ss") || !ft_strcmp(line, "rr")
+	|| !ft_strcmp(line, "rrr")))
+		return (1);
+	if (ft_lstsize(stacks->a) == 0 && !ft_strcmp(line, "pb"))
+		return (1);
+	if (ft_lstsize(stacks->b) == 0 && !ft_strcmp(line, "pa"))
+		return (1);
 	return (selectope_helper(line, stacks, check));
 }
 

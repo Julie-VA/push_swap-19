@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:58:55 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/28 15:43:41 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/07/01 18:52:20 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ static int	setstacks_split(char **argv, t_list **tmp, int i, int *j)
 static int	not_number(t_list **tmp, char **argv, int i, int j)
 {
 	if ((argv[i][j] < '0' || argv[i][j] > '9') && argv[i][j] != '-')
+	{
+		(*tmp)->next = NULL;
+		return (0);
+	}
+	if (argv[i][j] == '-' && (argv[i][j + 1] < '0' || argv[i][j + 1] > '9'))
 	{
 		(*tmp)->next = NULL;
 		return (0);

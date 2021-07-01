@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:45:26 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/06/25 18:05:50 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/07/01 19:30:10 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	sorted(t_list *a, int count)
 	int	i;
 
 	i = 1;
+	if (ft_lstsize(a) == 0)
+		return(1);
 	while (a->next)
 	{
 		if (a->cont > a->next->cont)
